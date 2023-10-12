@@ -1093,10 +1093,6 @@ void edgeTxClose(uint8_t shutdown)
 #endif
   }
 
-#if defined(LUA)
-  luaClose(&lsScripts);
-#endif
-
 #if defined(SDCARD)
   logsClose();
 #endif
@@ -1122,9 +1118,11 @@ void edgeTxClose(uint8_t shutdown)
   MainWindow::instance()->shutdown();
 #if defined(LUA)
   luaUnregisterWidgets();
-  luaClose(&lsWidgets);
-  lsWidgets = 0;
 #endif
+#endif
+
+#if defined(LUA)
+  luaClose();
 #endif
 
 #if defined(SDCARD)

@@ -25,7 +25,6 @@
 #include "lua_api.h"
 #include "lua_states.h"
 
-
 #define MAX_INSTRUCTIONS       (20000/100)
 
 static void l_pushtableint(const char * key, int value)

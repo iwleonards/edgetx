@@ -210,6 +210,7 @@ extern void rtcDisableBackupReg();
 void boardOff()
 {
   lcdOff();
+  delay_ms(100);  // Add a delay to wait for lcdOff
 
   while (pwrPressed()) {
     WDG_RESET();

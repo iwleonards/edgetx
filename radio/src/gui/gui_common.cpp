@@ -603,6 +603,10 @@ bool isAssignableFunctionAvailable(int function, bool modelFunctions)
     case FUNC_SET_SCREEN:
       return false;
 #endif
+#if !defined(FUNCTION_SWITCHES)
+      case FUNC_PUSH_CUST_SWITCH:
+          return false;
+#endif
     default:
       return true;
   }

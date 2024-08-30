@@ -141,6 +141,9 @@ void evalFunctions(const CustomFunctionData * functions, CustomFunctionsContext 
 {
   MASK_FUNC_TYPE newActiveFunctions  = 0;
   MASK_CFN_TYPE  newActiveSwitches = 0;
+#if defined(FUNCTION_SWITCHES)
+  functionSwitchFunctionState = 0;
+#endif
 
   uint8_t playFirstIndex = (functions == g_model.customFn ? 1 : 1+MAX_SPECIAL_FUNCTIONS);
   #define PLAY_INDEX   (i+playFirstIndex)
@@ -365,6 +368,10 @@ void evalFunctions(const CustomFunctionData * functions, CustomFunctionsContext 
             }
             break;
 
+          case FUNC_PUSH_CUST_SWITCH:
+            functionSwitchFunctionState |= 1 << CFN_SW_INDEX(cfn);
+            break;
+
           case FUNC_BACKLIGHT: {
             newActiveFunctions |= (1u << FUNCTION_BACKLIGHT);
             if (!CFN_PARAM(cfn)) {  // When no source is set, backlight works
@@ -540,6 +547,10 @@ const char* funcGetLabel(uint8_t func)
     return STR_SF_RGBLEDS;
   case FUNC_LCD_TO_VIDEO:
     return STR_SF_LCD_TO_VIDEO;
+#if defined(FUNCTION_SWITCHES)
+  case FUNC_PUSH_CUST_SWITCH:
+    return STR_SF_PUSH_CUST_SWITCH;
+#endif
 #if defined(DEBUG)
   case FUNC_TEST:
     return STR_SF_TEST;

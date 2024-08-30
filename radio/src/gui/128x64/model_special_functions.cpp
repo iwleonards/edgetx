@@ -265,6 +265,10 @@ void menuSpecialFunctions(event_t event, CustomFunctionData * functions, CustomF
             if (active) CFN_TIMER_INDEX(cfn) = checkIncDec(event, CFN_TIMER_INDEX(cfn), 0, maxParam, eeFlags, isTimerSourceAvailable);
             break;
           }
+          else if (func == FUNC_PUSH_CUST_SWITCH) {
+            maxParam = NUM_FUNCTIONS_SWITCHES - 1;
+            drawStringWithIndex(lcdNextPos +5, y, "SW", CFN_SW_INDEX(cfn) + 1, attr);
+          }
           else if (attr) {
             repeatLastCursorMove(event);
           }
@@ -377,7 +381,7 @@ void menuSpecialFunctions(event_t event, CustomFunctionData * functions, CustomF
               INCDEC_ENABLE_CHECK(isSourceAvailable);
             }
           }
-          else if (func == FUNC_LOGS) {
+          else if (func == FUNC_LOGS || func == FUNC_PUSH_CUST_SWITCH) {
             val_min = SD_LOGS_PERIOD_MIN; 
             val_max = SD_LOGS_PERIOD_MAX;
 

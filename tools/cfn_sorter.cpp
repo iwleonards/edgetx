@@ -1,5 +1,6 @@
 
 #include <stdio.h>
+#include <string.h>
 #include <vector>
 #include <algorithm>
 #include <locale>
@@ -120,6 +121,7 @@ int main()
     { TR_SF_DISABLE_AUDIO_AMP, "FUNC_DISABLE_AUDIO_AMP", FUNC_DISABLE_AUDIO_AMP },
     { TR_SF_RGBLEDS, "FUNC_RGB_LED", FUNC_RGB_LED },
     { TR_SF_LCD_TO_VIDEO, "FUNC_LCD_TO_VIDEO", FUNC_LCD_TO_VIDEO },
+    { TR_SF_PUSH_CUST_SWITCH, "FUNC_PUSH_CUST_SWITCH", FUNC_PUSH_CUST_SWITCH },
     { TR_SF_TEST, "FUNC_TEST", FUNC_TEST },
   };
 

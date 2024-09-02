@@ -267,7 +267,7 @@ void menuSpecialFunctions(event_t event, CustomFunctionData * functions, CustomF
           }
           else if (func == FUNC_PUSH_CUST_SWITCH) {
             maxParam = NUM_FUNCTIONS_SWITCHES - 1;
-            drawStringWithIndex(MODEL_SPECIAL_FUNC_3RD_COLUMN, y, "SW", CFN_SW_INDEX(cfn) + 1, attr);
+            drawStringWithIndex(MODEL_SPECIAL_FUNC_3RD_COLUMN, y, "SW", CFN_CS_INDEX(cfn) + 1, attr);
           }
           else if (attr) {
             repeatLastCursorMove(event);

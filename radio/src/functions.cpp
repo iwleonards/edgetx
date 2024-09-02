@@ -368,9 +368,11 @@ void evalFunctions(const CustomFunctionData * functions, CustomFunctionsContext 
             }
             break;
 
+#if defined(FUNCTION_SWITCHES)
           case FUNC_PUSH_CUST_SWITCH:
             functionSwitchFunctionState |= 1 << CFN_SW_INDEX(cfn);
             break;
+#endif
 
           case FUNC_BACKLIGHT: {
             newActiveFunctions |= (1u << FUNCTION_BACKLIGHT);

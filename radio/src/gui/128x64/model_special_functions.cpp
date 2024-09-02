@@ -267,7 +267,7 @@ void menuSpecialFunctions(event_t event, CustomFunctionData * functions, CustomF
           }
           else if (func == FUNC_PUSH_CUST_SWITCH) {
             maxParam = NUM_FUNCTIONS_SWITCHES - 1;
-            drawStringWithIndex(lcdNextPos +5, y, "SW", CFN_SW_INDEX(cfn) + 1, attr);
+            drawStringWithIndex(MODEL_SPECIAL_FUNC_3RD_COLUMN, y, "SW", CFN_SW_INDEX(cfn) + 1, attr);
           }
           else if (attr) {
             repeatLastCursorMove(event);
@@ -381,7 +381,7 @@ void menuSpecialFunctions(event_t event, CustomFunctionData * functions, CustomF
               INCDEC_ENABLE_CHECK(isSourceAvailable);
             }
           }
-          else if (func == FUNC_LOGS || func == FUNC_PUSH_CUST_SWITCH) {
+          else if (func == FUNC_LOGS) {
             val_min = SD_LOGS_PERIOD_MIN; 
             val_max = SD_LOGS_PERIOD_MAX;
 
